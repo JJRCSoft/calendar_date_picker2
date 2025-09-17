@@ -186,6 +186,7 @@ class CalendarDatePicker2Config {
     this.disableMonthPicker,
     this.useAbbrLabelForMonthModePicker,
     this.dayMaxWidth,
+    this.dayHeight,
     this.hideMonthPickerDividers,
     this.hideYearPickerDividers,
     this.scrollViewTopHeaderTextStyle,
@@ -385,6 +386,9 @@ class CalendarDatePicker2Config {
   /// Max width of day widget. When [dayMaxWidth] is not null, it will override default size settings
   final double? dayMaxWidth;
 
+  /// Custom height for day widget
+  final double? dayHeight;
+
   /// Flag to hide dividers on month picker
   final bool? hideMonthPickerDividers;
 
@@ -490,6 +494,7 @@ class CalendarDatePicker2Config {
     bool? disableMonthPicker,
     bool? useAbbrLabelForMonthModePicker,
     double? dayMaxWidth,
+    double? dayHeight,
     bool? hideMonthPickerDividers,
     bool? hideYearPickerDividers,
     TextStyle? scrollViewTopHeaderTextStyle,
@@ -581,6 +586,7 @@ class CalendarDatePicker2Config {
       useAbbrLabelForMonthModePicker:
           useAbbrLabelForMonthModePicker ?? this.useAbbrLabelForMonthModePicker,
       dayMaxWidth: dayMaxWidth ?? this.dayMaxWidth,
+      dayHeight: dayHeight ?? this.dayHeight,
       hideMonthPickerDividers:
           hideMonthPickerDividers ?? this.hideMonthPickerDividers,
       hideYearPickerDividers:
@@ -672,6 +678,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     bool? disableMonthPicker,
     bool? useAbbrLabelForMonthModePicker,
     double? dayMaxWidth,
+    double? dayHeight,
     bool? hideMonthPickerDividers,
     bool? hideYearPickerDividers,
     TextStyle? scrollViewTopHeaderTextStyle,
@@ -753,6 +760,7 @@ class CalendarDatePicker2WithActionButtonsConfig
           disableMonthPicker: disableMonthPicker,
           useAbbrLabelForMonthModePicker: useAbbrLabelForMonthModePicker,
           dayMaxWidth: dayMaxWidth,
+          dayHeight: dayHeight,
           hideMonthPickerDividers: hideMonthPickerDividers,
           hideYearPickerDividers: hideYearPickerDividers,
           scrollViewTopHeaderTextStyle: scrollViewTopHeaderTextStyle,
@@ -864,6 +872,7 @@ class CalendarDatePicker2WithActionButtonsConfig
     bool? disableMonthPicker,
     bool? useAbbrLabelForMonthModePicker,
     double? dayMaxWidth,
+    double? dayHeight,
     bool? hideMonthPickerDividers,
     bool? hideYearPickerDividers,
     TextStyle? scrollViewTopHeaderTextStyle,
@@ -968,6 +977,7 @@ class CalendarDatePicker2WithActionButtonsConfig
       useAbbrLabelForMonthModePicker:
           useAbbrLabelForMonthModePicker ?? this.useAbbrLabelForMonthModePicker,
       dayMaxWidth: dayMaxWidth ?? this.dayMaxWidth,
+      dayHeight: dayHeight ?? this.dayHeight,
       hideMonthPickerDividers:
           hideMonthPickerDividers ?? this.hideMonthPickerDividers,
       hideYearPickerDividers:

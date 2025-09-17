@@ -373,9 +373,10 @@ class _CalendarDatePicker2State extends State<CalendarDatePicker2> {
           )
         : _maxDayPickerRowCount;
     final totalRowsCount = dayRowsCount + 1;
-    final rowHeight = widget.config.dayMaxWidth != null
-        ? (widget.config.dayMaxWidth! + 2)
-        : _dayPickerRowHeight;
+    final rowHeight = widget.config.dayHeight ??
+        (widget.config.dayMaxWidth != null
+            ? (widget.config.dayMaxWidth! + 2)
+            : _dayPickerRowHeight);
     final maxContentHeight = rowHeight * totalRowsCount;
 
     return widget.config.calendarViewMode == CalendarDatePicker2Mode.scroll

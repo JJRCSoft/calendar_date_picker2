@@ -349,10 +349,11 @@ class _DayPickerState extends State<_DayPicker> {
             child: dayWidget,
           );
         } else {
-          var dayInkRadius = _dayPickerRowHeight / 2 + 4;
-          if (widget.config.dayMaxWidth != null) {
-            dayInkRadius = (widget.config.dayMaxWidth! + 2) / 2 + 4;
-          }
+          final dayWidgetHeight = widget.config.dayHeight ??
+              (widget.config.dayMaxWidth != null
+                  ? (widget.config.dayMaxWidth! + 2)
+                  : _dayPickerRowHeight);
+          final dayInkRadius = dayWidgetHeight / 2 + 4;
           dayWidget = InkResponse(
             focusNode: _dayFocusNodes[day - 1],
             onTap: () => widget.onChanged(dayToBuild),
@@ -446,9 +447,10 @@ class _DayPickerGridDelegate extends SliverGridDelegate {
         config?.hideScrollViewMonthWeekHeader == true) {
       totalRowsCount -= 1;
     }
-    var rowHeight = config?.dayMaxWidth != null
-        ? (config!.dayMaxWidth! + 2)
-        : _dayPickerRowHeight;
+    var rowHeight = config?.dayHeight ??
+        (config?.dayMaxWidth != null
+            ? (config!.dayMaxWidth! + 2)
+            : _dayPickerRowHeight);
     final double tileHeight = math.min(
       rowHeight,
       constraints.viewportMainAxisExtent / totalRowsCount,

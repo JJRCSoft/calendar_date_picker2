@@ -106,9 +106,10 @@ class _CalendarScrollViewState extends State<_CalendarScrollView> {
           )
         : _maxDayPickerRowCount;
     var totalRowsCount = dayRowsCount + 1;
-    var rowHeight = widget.config.dayMaxWidth != null
-        ? (widget.config.dayMaxWidth! + 2)
-        : _dayPickerRowHeight;
+    var rowHeight = widget.config.dayHeight ??
+        (widget.config.dayMaxWidth != null
+            ? (widget.config.dayMaxWidth! + 2)
+            : _dayPickerRowHeight);
     if (widget.config.calendarViewMode == CalendarDatePicker2Mode.scroll &&
         widget.config.hideScrollViewMonthWeekHeader == true) {
       // Exclude header row
@@ -426,9 +427,10 @@ class _CalendarScrollViewHeader extends StatelessWidget {
 
     return Container(
       constraints: BoxConstraints(
-          maxHeight: config.dayMaxWidth != null
-              ? config.dayMaxWidth! + 2
-              : _dayPickerRowHeight),
+          maxHeight: config.dayHeight ??
+              (config.dayMaxWidth != null
+                  ? config.dayMaxWidth! + 2
+                  : _dayPickerRowHeight)),
       child: LayoutBuilder(
           builder: (BuildContext context, BoxConstraints constraints) {
         final double tileWidth =
@@ -444,7 +446,7 @@ class _CalendarScrollViewHeader extends StatelessWidget {
               for (Widget header in headers)
                 SizedBox(
                   width: tileWidth,
-                  height: _dayPickerRowHeight,
+                  height: config.dayHeight ?? _dayPickerRowHeight,
                   child: Center(child: header),
                 ),
               const Spacer(),
